@@ -35,9 +35,9 @@ public:
   void printTurnOnSignalVoltage();
 
   // Speaker Configurations
-  void selectAUXInput(byte data1, byte data2);
-  void selectVID1Input(byte data1, byte data2);
-  void selectTAPEInput(byte data1, byte data2);
+  void selectAUXInput();
+  void selectVID1Input();
+  void selectTAPEInput();
   void select2SpeakerMode();
   void select3SpeakerMode();
   void select5SpeakerMode();

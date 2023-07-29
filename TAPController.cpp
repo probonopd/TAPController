@@ -114,22 +114,16 @@ void TAPController::printTurnOnSignalVoltage() {
 
 // Speaker Configurations
 
-void TAPController::selectAUXInput(byte data1, byte data2) {
-  _serial.print("sk 51,");
-  _serial.print(data1, HEX);
-  _serial.println("," + String(data2, HEX));
+void TAPController::selectAUXInput() {
+  _serial.println("sk 51,af,ff");
 }
 
-void TAPController::selectVID1Input(byte data1, byte data2) {
-  _serial.print("sk 61,");
-  _serial.print(data1, HEX);
-  _serial.println("," + String(data2, HEX));
+void TAPController::selectVID1Input() {
+  _serial.println("sk 61,af,ff");
 }
 
-void TAPController::selectTAPEInput(byte data1, byte data2) {
-  _serial.print("sk 42,");
-  _serial.print(data1, HEX);
-  _serial.println("," + String(data2, HEX));
+void TAPController::selectTAPEInput() {
+  _serial.println("sk 42,af,ff");
 }
 
 void TAPController::select2SpeakerMode() {

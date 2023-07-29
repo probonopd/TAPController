@@ -102,6 +102,7 @@ Constructor to create an instance of the TAPController class.
 - `void select2SpeakerMode()`: Select 2-speaker mode.
 - `void select3SpeakerMode()`: Select 3-speaker mode.
 - `void select5SpeakerMode()`: Select 5-speaker mode.
+- `void setVolume(byte volumeValue)`: Set normal volume with "volumeValue" (hex).
 - `void setCenterSurroundVolume(byte volumeValue)`: Set center/surround volume with "volumeValue" (hex).
 - `void volumeUp()`: Volume up 1dB.
 - `void volumeDown()`: Volume down 1dB.

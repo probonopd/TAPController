@@ -1,0 +1,23 @@
+{
+  "name": "TAPController",
+  "version": "0.1.0",
+  "description": "Control Bose Acoustimass module over serial port",
+  "keywords": "Bose, Acoustimass, serial, TAP commands",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/probonopd/TAPController.git"
+  },
+  "authors": [
+    {
+      "name": "probono",
+      "email": "probono@puredarwin.org"
+    }
+  ],
+  "license": "BSD-2-Clause",
+  "dependencies": {},
+  "frameworks": "arduino",
+  "platforms": "*",
+  "export": {
+    "include": "TAPController.h",
+  }
+}

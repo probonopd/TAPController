@@ -5,6 +5,8 @@
 
 Control Bose Acoustimass modules over serial port using TAP commands.
 
+__NOTE:__ There is a product recall for Bose Acoustimass modules. See [here](https://global.bose.com/en_us/bm_safety_contact_en.html) for details.
+
 ## Features
 
 - Mute and unmute the audio.

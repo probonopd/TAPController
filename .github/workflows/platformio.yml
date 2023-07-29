@@ -1,0 +1,22 @@
+name: PlatformIO Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install PlatformIO
+      run: |
+        pip install platformio
+
+    - name: Build Library
+      run: platformio run -d lib/TAPController

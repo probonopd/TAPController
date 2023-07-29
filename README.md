@@ -42,6 +42,7 @@ void loop() {
   tap.unmuteAudio();
   delay(5000); // Sleep for 5 seconds
 }
+```
 
 ## API Reference
 

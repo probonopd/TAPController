@@ -1,4 +1,4 @@
-# TAPController Library
+# TAPController Library for Arduino
 
 ![License](https://img.shields.io/github/license/probonopd/TAPController)
 ![Version](https://img.shields.io/github/v/release/probonopd/TAPController)

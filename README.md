@@ -5,6 +5,15 @@
 
 Control Bose Acoustimass module over serial port using TAP commands.
 
+## Features
+
+- Mute and unmute the audio.
+- Control volume settings for different channels.
+- Select input sources for the Bose Acoustimass module.
+- Switch between different speaker configurations.
+- Read ADC port voltages for specific parameters.
+- Dump and modify EEPROM contents.
+
 ## Installation
 
 To use the TAPController library, you can install it through the Arduino Library Manager or PlatformIO.

@@ -16,7 +16,7 @@ Control Bose Acoustimass module over serial port using TAP commands.
 
 ## Disclaimer
 
-The TAPController library is provided as-is, without any guarantees or warranties. It is intended for educational and experimental purposes and shall be used at your own risk. The library provides control over the Bose Acoustimass module via a serial interface, and improper usage may lead to undesired behavior or potential damage to the hardware. Before using this library, we strongly advise you to read the service manual of the Bose Acoustimass module and fully understand its functionality and limitations. The author and contributors of this library are not liable for any damages or issues that may arise from using this library with the Bose Acoustimass module. Always exercise caution and responsibility when interacting with hardware components.
+The TAPController library is provided as-is, without any guarantees or warranties. It is intended for educational and experimental purposes and shall be used at your own risk. The library provides control over the Bose Acoustimass module via a serial interface, and improper usage may lead to undesired behavior or potential damage to the hardware. Before using this library, we strongly advise you to read the service manual ("Troubleshooting Guide Powered Acoustimass® -25 and -30 Series II Speaker System AM-25P II/ AM-30P II Digital Bass Module", Part Number 199401-TG1) and fully understand the functionality and limitations of the hardware. The author and contributors of this library are not liable for any damages or issues that may arise from using this library with the Bose Acoustimass module. Always exercise caution and responsibility when interacting with hardware components.
 
 ## Installation
 
@@ -302,3 +302,4 @@ This project is licensed under the BSD 2-Clause License. See the [LICENSE](LICEN
 - Author: probono <probono@puredarwin.org>
 - Repository: [https://github.com/probonopd/TAPController](https://github.com/probonopd/TAPController)
 - Lifestyle: [https://github.com/probonopd/Lifestyle/](https://github.com/probonopd/Lifestyle/)
+- Thanks to: @741Z for [pointing out](https://github.com/probonopd/Lifestyle/issues/2#issuecomment-1656711850) some initial commands

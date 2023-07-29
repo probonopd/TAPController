@@ -1,7 +1,7 @@
 # TAPController Library
 
-![License](https://img.shields.io/github/license/yourusername/TAPController)
-![Version](https://img.shields.io/github/v/release/yourusername/TAPController)
+![License](https://img.shields.io/github/license/probonopd/TAPController)
+![Version](https://img.shields.io/github/v/release/probonopd/TAPController)
 
 Control Bose Acoustimass module over serial port using TAP commands.
 

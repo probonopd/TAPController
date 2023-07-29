@@ -139,6 +139,11 @@ void TAPController::select5SpeakerMode() {
 }
 
 void TAPController::setCenterSurroundVolume(byte volumeValue) {
+  _serial.print("sk 31,1");
+  _serial.println(volumeValue, HEX);
+}
+
+void TAPController::setCenterSurroundVolume(byte volumeValue) {
   _serial.print("sk 31,9");
   _serial.println(volumeValue, HEX);
 }

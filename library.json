@@ -1,7 +1,7 @@
 {
   "name": "TAPController",
   "version": "0.1.0",
-  "description": "Control Bose Acoustimass module over serial port",
+  "description": "Control Bose Acoustimass modules over serial port",
   "keywords": "Bose, Acoustimass, serial, TAP commands",
   "repository": {
     "type": "git",

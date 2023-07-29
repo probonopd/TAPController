@@ -2,6 +2,8 @@
 
 TAPController::TAPController(Stream& serial) : _serial(serial) {}
 
+// General Control Functions
+
 void TAPController::printFirmwareRevisions() {
   _serial.println("tv");
 }
@@ -51,11 +53,6 @@ void TAPController::selectInput(byte inputType, byte data1, byte data2) {
   _serial.println(data2, HEX);
 }
 
-void TAPController::printUCADCVoltage(byte x) {
-  _serial.print("ad ");
-  _serial.println(x, HEX);
-}
-
 void TAPController::setVolume(byte volumeType, byte volumeValue) {
   _serial.print("sk 31,");
   _serial.print(volumeType, HEX);
@@ -72,54 +69,98 @@ void TAPController::unmuteAudio() {
 }
 
 void TAPController::selectAudioMode(byte mode) {
-  _serial.print("sk 31,d0,");
-  _serial.println(mode, HEX);
+  _serial.print("tn ");
+  _serial.print(mode, HEX);
+  _serial.println(",0,0,0,0,0,0,0,0");
 }
 
 void TAPController::turnOff() {
   _serial.println("sk 3f,6f,ff");
 }
 
+// ADC Functions
+
+void TAPController::printBassPotPosition() {
+  _serial.println("ad 0");
+}
+
+void TAPController::printTreblePotPosition() {
+  _serial.println("ad 1");
+}
+
+void TAPController::printThermistorVoltage() {
+  _serial.println("ad 2");
+}
+
+void TAPController::print3_3VSupplyVoltage() {
+  _serial.println("ad 3");
+}
+
+void TAPController::printSPDIFDetectVoltage() {
+  _serial.println("ad 4");
+}
+
+void TAPController::printCodecReferenceVoltage() {
+  _serial.println("ad 5");
+}
+
+void TAPController::printTwiddlerDCOffset() {
+  _serial.println("ad 6");
+}
+
+void TAPController::printTurnOnSignalVoltage() {
+  _serial.println("ad 7");
+}
+
+// Speaker Configurations
+
 void TAPController::selectAUXInput(byte data1, byte data2) {
-  selectInput(0x51, data1, data2);
+  _serial.print("sk 51,");
+  _serial.print(data1, HEX);
+  _serial.println("," + String(data2, HEX));
 }
 
 void TAPController::selectVID1Input(byte data1, byte data2) {
-  selectInput(0x61, data1, data2);
+  _serial.print("sk 61,");
+  _serial.print(data1, HEX);
+  _serial.println("," + String(data2, HEX));
 }
 
 void TAPController::selectTAPEInput(byte data1, byte data2) {
-  selectInput(0x42, data1, data2);
+  _serial.print("sk 42,");
+  _serial.print(data1, HEX);
+  _serial.println("," + String(data2, HEX));
 }
 
 void TAPController::select2SpeakerMode() {
-  selectAudioMode(0x2F);
+  _serial.println("sk 31,d0,2f");
 }
 
 void TAPController::select3SpeakerMode() {
-  selectAudioMode(0x3F);
+  _serial.println("sk 31,d0,3f");
 }
 
 void TAPController::select5SpeakerMode() {
-  selectAudioMode(0x4F);
+  _serial.println("sk 31,d0,4f");
 }
 
 void TAPController::setCenterSurroundVolume(byte volumeValue) {
-  setVolume(0x9F, volumeValue);
+  _serial.print("sk 31,9");
+  _serial.println(volumeValue, HEX);
 }
 
-void TAPController::volumeUp(byte step) {
-  setVolume(0x1F, step);
+void TAPController::volumeUp() {
+  _serial.println("sk 31,1f,ff");
 }
 
-void TAPController::volumeDown(byte step) {
-  setVolume(0x2F, step);
+void TAPController::volumeDown() {
+  _serial.println("sk 31,2f,ff");
 }
 
-void TAPController::surroundVolumeUp(byte step) {
-  setVolume(0xAF, step);
+void TAPController::surroundVolumeUp() {
+  _serial.println("sk 31,9f,ff");
 }
 
-void TAPController::surroundVolumeDown(byte step) {
-  setVolume(0xBF, step);
+void TAPController::surroundVolumeDown() {
+  _serial.println("sk 31,af,ff");
 }

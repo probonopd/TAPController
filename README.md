@@ -50,6 +50,46 @@ void loop() {
 
 - `TAPController(Stream& serial);`: Constructor to initialize the TAPController with the provided `Stream` object for serial communication.
 
+## TAP Commands
+
+| TAP Command                  | Description                                                |
+|-----------------------------|------------------------------------------------------------|
+| tv                          | print firmware revisions                                   |
+| vr                          | print uC checksum                                          |
+| rs                          | reset pcb                                                  |
+| rc                          | reset DSPs                                                 |
+| rd                          | reset codec                                                |
+| de                          | dump the contents of EEPROM                                |
+| we xx,yy                    | Write data "xx" (hex) to EEPROM address "yy" (hex)          |
+| ce 0                        | re-calculate and store EEPROM checksum                     |
+| ef xx                       | fill EEPROM with data "xx" (hex)                            |
+| sk 51,af,ff                 | select AUX input (digital)                                 |
+| sk 61,af,ff                 | select VID1 input (analog)                                 |
+| ad x                        | print uC ADC port voltage, where "x" equals:<br>0    bass pot position<br>1    treble pot position<br>2    thermistor voltage<br>3    3.3V supply<br>4    SPDIF detect<br>5    codec reference voltage<br>6    twddler DC offset<br>7    turn-on signal<br>(result is 8-bit, 0=0V, FF=5V)|
+| sk 42,af,ff                 | select TAPE input (analog)                                 |
+| sk 31,1f,ff                 | volume up 1dB                                             |
+| sk 31,2f,ff                 | volume down 1dB                                           |
+| sk 31,1x,xf                 | set volume to -xx volume<br>e.g.<br>sk 31,10,0f  00dB<br>sk 31,11,2f  -12dB<br>sk 31,13,4f  -34dB|
+| sk 31,9f,ff                 | center/surround volume up (3-speaker / 5-speaker)          |
+| sk 31,af,ff                 | center/surround volume down                                |
+| sk 31,9x,xf                 | set center/surround volume<br>e.g.,<br>sk 31,90,0f  +7dB<br>sk 31,90,1f  +6dB<br>sk 31,90,7f   0dB<br>sk 31,91,4f  -7dB<br>sk 31,91,5f  -8dB|
+| sk 31,4f,ff                 | mute                                                       |
+| sk 31,3f,ff                 | un-mute                                                    |
+| sk 31,d0,2f                 | select 2-speaker mode                                      |
+| sk 31,d0,3f                 | select 3-speaker mode                                      |
+| sk 31,d0,4f                 | select 5-speaker mode                                      |
+| sk 3f,6f,ff                 | off                                                        |
+| tn 3,0,0,0,0,0,0,0,0        | passthrough, with all signal processing                   |
+| tn 6,0,0,0,0,0,0,0,0        | passthrough, with no signal processing                    |
+| tn 0,0,0,0,0,0,0,0,0        | exit test mode, restore normal signal processing          |
+| tn 4,0,0,0,0,0,0,0,0        | request DSP checksum calculation                           |
+| dp 10,0,2,0,12              | fetch and print DSP checksum calculation                    |
+| dp 10,0,0,0,0               | peek at DSP 1 address 0                                    |
+| dp 20,0,0,0,0               | peek at DSP 2 address 0                                    |
+| sk 31,ex,yf                 | x=8  2-speaker<br>x=9  3-speaker<br>x=A  5-speaker<br>y=4 single bits, as follows<br>DRC off/on<br>1_to_5 off/on|
+
+Source: Bose manual Part Number 199401-TG1 pp. 80
+
 ## Contributing
 
 We welcome contributions to the TAPController library and appreciate your interest in improving it. If you would like to contribute, please follow these guidelines:

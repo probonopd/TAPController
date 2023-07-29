@@ -139,13 +139,35 @@ void TAPController::select5SpeakerMode() {
 }
 
 void TAPController::setVolume(byte volumeValue) {
+  // Command format: sk 31,1x,xf
+  // Set volume to -xx volume
+  // Example: sk 31,10,0f  (00dB)
+  //          sk 31,11,2f  (-12dB)
+  //          sk 31,13,4f  (-34dB)
+
+  // Convert the volume value to hexadecimal format
+  String volumeHex = String(volumeValue, HEX);
+
+  // Send the complete command to set the volume
   _serial.print("sk 31,1");
-  _serial.println(volumeValue, HEX);
+  _serial.println(volumeHex);
 }
 
 void TAPController::setCenterSurroundVolume(byte volumeValue) {
+  // Command format: sk 31,9x,xf
+  // Set center/surround volume
+  // Example: sk 31,90,0f  (+7dB)
+  //          sk 31,90,1f  (+6dB)
+  //          sk 31,90,7f  (0dB)
+  //          sk 31,91,4f  (-7dB)
+  //          sk 31,91,5f  (-8dB)
+
+  // Convert the volume value to hexadecimal format
+  String volumeHex = String(volumeValue, HEX);
+
+  // Send the complete command to set the center/surround volume
   _serial.print("sk 31,9");
-  _serial.println(volumeValue, HEX);
+  _serial.println(volumeHex);
 }
 
 void TAPController::volumeUp() {

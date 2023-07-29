@@ -41,6 +41,7 @@ public:
   void select2SpeakerMode();
   void select3SpeakerMode();
   void select5SpeakerMode();
+  void setVolume(byte volumeValue);
   void setCenterSurroundVolume(byte volumeValue);
   void volumeUp();
   void volumeDown();

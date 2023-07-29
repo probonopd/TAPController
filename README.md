@@ -65,182 +65,53 @@ void loop() {
 
 Constructor to create an instance of the TAPController class.
 
-- `serial`: The Stream object representing the serial port to communicate with the Bose Acoustimass module.
-
-### void muteAudio()
-
-Mutes the audio output of the Bose Acoustimass module.
-
-### void unmuteAudio()
-
-Unmutes the audio output of the Bose Acoustimass module.
-
-### void selectInput(uint8_t inputCode)
-
-Selects an input source for the Bose Acoustimass module.
-
-- `inputCode`: The input code representing the desired input source.
-
-### void setVolume(int8_t volume)
-
-Sets the volume level for the Bose Acoustimass module.
-
-- `volume`: The volume level to be set. Valid range: -80 to 12 (representing -80dB to +12dB).
-
-### void setCenterSurroundVolume(int8_t centerVolume, int8_t surroundVolume)
-
-Sets the volume levels for the center and surround channels.
-
-- `centerVolume`: The volume level for the center channel. Valid range: -80 to 12 (representing -80dB to +12dB).
-- `surroundVolume`: The volume level for the surround channel. Valid range: -80 to 12 (representing -80dB to +12dB).
-
-### void setSpeakerMode(uint8_t speakerMode)
-
-Sets the speaker mode for the Bose Acoustimass module.
-
-- `speakerMode`: The speaker mode code representing the desired configuration.
-
-### uint8_t readADC(uint8_t adcPort)
-
-Reads the voltage from a specific ADC port of the Bose Acoustimass module.
-
-- `adcPort`: The ADC port number to read voltage from.
-
-Returns: The 8-bit ADC reading representing the voltage value (0 to 255).
-
-### void dumpEEPROM()
-
-Dumps the contents of the EEPROM from the Bose Acoustimass module over the serial port.
-
-### void writeEEPROM(uint8_t address, uint8_t data)
-
-Writes a single byte of data to a specific address in the EEPROM of the Bose Acoustimass module.
-
-- `address`: The EEPROM address to write data to.
-- `data`: The data byte to be written.
-
-### void calculateEEPROMChecksum()
-
-Recalculates and stores the checksum of the EEPROM data in the Bose Acoustimass module.
-
-### void fillEEPROM(uint8_t data)
-
-Fills the entire EEPROM of the Bose Acoustimass module with the specified data.
-
-- `data`: The data byte to fill the EEPROM with.
-
-### void resetPCB()
-
-Resets the PCB (Printed Circuit Board) of the Bose Acoustimass module.
-
-### void resetDSPs()
-
-Resets the DSPs (Digital Signal Processors) of the Bose Acoustimass module.
-
-### void resetCodec()
-
-Resets the audio codec of the Bose Acoustimass module.
-
-### void requestDSPChecksumCalculation()
-
-Requests the DSP checksum calculation from the Bose Acoustimass module.
-
-### void fetchDSPChecksum(uint8_t dspNumber, uint8_t address)
-
-Fetches and prints the checksum calculation of a specific DSP.
-
-- `dspNumber`: The DSP number (1 or 2) for which the checksum calculation is requested.
-- `address`: The address to fetch the checksum calculation from.
-
-### void select2SpeakerMode()
-
-Selects the 2-speaker mode configuration.
-
-### void select3SpeakerMode()
-
-Selects the 3-speaker mode configuration.
-
-### void select5SpeakerMode()
-
-Selects the 5-speaker mode configuration.
-
-### void selectOffMode()
-
-Turns off the audio output of the Bose Acoustimass module.
-
-### void passthroughAllSignalProcessing()
-
-Sets the Bose Acoustimass module in passthrough mode with all signal processing enabled.
-
-### void passthroughNoSignalProcessing()
-
-Sets the Bose Acoustimass module in passthrough mode with no signal processing.
-
-### void exitTestMode()
-
-Exits the test mode and restores normal signal processing.
-
-### void turnOnSignal()
-
-Triggers the turn-on signal in the Bose Acoustimass module.
-
-### void turnOffSignal()
-
-Triggers the turn-off signal in the Bose Acoustimass module.
-
-### void DRCOn()
-
-Enables Dynamic Range Compression (DRC) in the Bose Acoustimass module.
-
-### void DRCOff()
-
-Disables Dynamic Range Compression (DRC) in the Bose Acoustimass module.
-
-### void oneToFiveOn()
-
-Enables the 1-to-5 mode in the Bose Acoustimass module.
-
-### void oneToFiveOff()
-
-Disables the 1-to-5 mode in the Bose Acoustimass module.
-
-### void printStatus()
-
-Prints the current status of the Bose Acoustimass module.
-
-### void resetAll()
-
-Resets all configurations in the Bose Acoustimass module to default values.
-
-### void setBassPotPosition(uint8_t position)
-
-Sets the position of the bass potentiometer.
-
-- `position`: The position value for the bass potentiometer (0 to 255).
-
-### void setTreblePotPosition(uint8_t position)
-
-Sets the position of the treble potentiometer.
-
-- `position`: The position value for the treble potentiometer (0 to 255).
-
-### void setThermistorVoltage(uint8_t voltage)
-
-Sets the voltage value for the thermistor.
-
-- `voltage`: The voltage value for the thermistor (0 to 255).
-
-### void setSupplyVoltage(uint8_t voltage)
-
-Sets the voltage value for the 3.3V supply.
-
-- `voltage`: The voltage value for the 3.3V supply (0 to 255).
-
-### void setSPDIFDetectVoltage(uint8_t voltage)
-
-Sets the voltage value for the SPDIF detect.
-
-- `voltage`: The voltage
+### General Control Functions
+
+- `void printFirmwareRevisions()`: Print firmware revisions.
+- `void printUCChecksum()`: Print uC checksum.
+- `void resetPCB()`: Reset PCB.
+- `void resetDSPs()`: Reset DSPs.
+- `void resetCodec()`: Reset codec.
+- `void dumpEEPROMContents()`: Dump the contents of EEPROM.
+- `void writeEEPROMData(byte address, byte data)`: Write data "data" (hex) to EEPROM address "address" (hex).
+- `void recalculateEEPROMChecksum()`: Re-calculate and store EEPROM checksum.
+- `void fillEEPROMWithData(byte data)`: Fill EEPROM with data "data" (hex).
+- `void selectInput(byte inputType, byte data1, byte data2)`: Select input type with custom data "inputType" (hex), "data1" (hex), and "data2" (hex).
+- `void setVolume(byte volumeType, byte volumeValue)`: Set volume with "volumeType" (hex) and "volumeValue" (hex).
+- `void muteAudio()`: Mute audio.
+- `void unmuteAudio()`: Un-mute audio.
+- `void selectAudioMode(byte mode)`: Select audio mode with "mode" (hex).
+- `void turnOff()`: Turn off.
+
+### ADC Functions
+
+- `void printBassPotPosition()`: Print uC ADC port voltage for bass pot position.
+- `void printTreblePotPosition()`: Print uC ADC port voltage for treble pot position.
+- `void printThermistorVoltage()`: Print uC ADC port voltage for thermistor voltage.
+- `void print3_3VSupplyVoltage()`: Print uC ADC port voltage for 3.3V supply.
+- `void printSPDIFDetectVoltage()`: Print uC ADC port voltage for SPDIF detect.
+- `void printCodecReferenceVoltage()`: Print uC ADC port voltage for codec reference voltage.
+- `void printTwiddlerDCOffset()`: Print uC ADC port voltage for Twiddler DC offset.
+- `void printTurnOnSignalVoltage()`: Print uC ADC port voltage for turn-on signal.
+
+### Speaker Configurations
+
+- `void selectAUXInput()`: Select AUX input (digital).
+- `void selectVID1Input()`: Select VID1 input (analog).
+- `void selectTAPEInput()`: Select TAPE input (analog).
+- `void select2SpeakerMode()`: Select 2-speaker mode.
+- `void select3SpeakerMode()`: Select 3-speaker mode.
+- `void select5SpeakerMode()`: Select 5-speaker mode.
+- `void setCenterSurroundVolume(byte volumeValue)`: Set center/surround volume with "volumeValue" (hex).
+- `void volumeUp()`: Volume up 1dB.
+- `void volumeDown()`: Volume down 1dB.
+- `void surroundVolumeUp()`: Center/surround volume up (3-speaker / 5-speaker).
+- `void surroundVolumeDown()`: Center/surround volume down.
+
+### **WARNINGS**:
+
+- The functions `writeEEPROMData`, `recalculateEEPROMChecksum`, and `fillEEPROMWithData` modify the contents of the EEPROM. Be cautious while using them.
+- This library interacts directly with hardware and can have potential risks. Use it at your own risk, and make sure to consult the service manual before making any changes to the hardware.
 
 ## TAP Commands
 

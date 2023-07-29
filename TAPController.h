@@ -25,7 +25,6 @@ public:
   void turnOff();
 
   // ADC Functions
-  // Individual functions for different ADC types
   void printBassPotPosition();
   void printTreblePotPosition();
   void printThermistorVoltage();
@@ -43,10 +42,10 @@ public:
   void select3SpeakerMode();
   void select5SpeakerMode();
   void setCenterSurroundVolume(byte volumeValue);
-  void volumeUp(byte step);
-  void volumeDown(byte step);
-  void surroundVolumeUp(byte step);
-  void surroundVolumeDown(byte step);
+  void volumeUp();
+  void volumeDown();
+  void surroundVolumeUp();
+  void surroundVolumeDown();
 
 private:
   Stream& _serial;

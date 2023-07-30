@@ -2,10 +2,11 @@
 #define TAPController_h
 
 #include <Arduino.h>
+#include <SoftwareSerial.h>
 
 class TAPController {
 public:
-  TAPController(Stream& serial);
+  TAPController(uint8_t rxPin, uint8_t txPin); // SoftwareSerial pins
 
   // General Control Functions
   void printFirmwareRevisions();
@@ -49,7 +50,7 @@ public:
   void surroundVolumeDown();
 
 private:
-  Stream& _serial;
+  SoftwareSerial _serial;
 };
 
 #endif

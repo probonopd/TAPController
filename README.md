@@ -39,7 +39,7 @@ To use the TAPController library, you can install it through the Arduino Library
 
 ## Usage
 
-See the [`MuteUnmuteExample.ino`](../../examples/MuteUnmuteExample/MuteUnmuteExample.ino) example sketch.
+See the [`MuteUnmuteExample.ino`](../../blob/main/examples/MuteUnmuteExample/MuteUnmuteExample.ino) example sketch.
 
 ## API Reference
 

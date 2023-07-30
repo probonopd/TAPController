@@ -1,6 +1,8 @@
 #include "TAPController.h"
 
-TAPController::TAPController(Stream& serial) : _serial(serial) {}
+TAPController::TAPController(uint8_t rxPin, uint8_t txPin) : _serial(rxPin, txPin) {
+  _serial.begin(4800); // Set the baud rate to 4800
+}
 
 // General Control Functions
 

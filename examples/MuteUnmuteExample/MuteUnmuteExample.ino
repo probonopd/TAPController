@@ -1,17 +1,24 @@
-#include <TAPController.h>
+#include <SoftwareSerial.h>
+#include "TAPController.h"
 
-TAPController tap(Serial);
+// Define SoftwareSerial object with RX and TX pins
+// Use pin 2 for RX (receive) and pin 3 for TX (transmit) for TAP communication
+SoftwareSerial tapSerial(2, 3);
 
 void setup() {
-  Serial.begin(4800); // Start serial communication
+  Serial.begin(115200); // Initialize normal serial communication at 115200 baud for debugging
+  tapSerial.begin(4800); // Set the baud rate to 4800 for SoftwareSerial communication
+  delay(1000); // Wait for the TAPController to initialize
 }
 
 void loop() {
   // Mute the audio
-  tap.muteAudio();
-  delay(5000); // Sleep for 5 seconds
+  tapController.muteAudio();
+  Serial.println("Audio muted");
+  delay(3000); // Wait for 3 seconds
 
   // Unmute the audio
-  tap.unmuteAudio();
-  delay(5000); // Sleep for 5 seconds
+  tapController.unmuteAudio();
+  Serial.println("Audio unmuted");
+  delay(3000); // Wait for 3 seconds
 }
